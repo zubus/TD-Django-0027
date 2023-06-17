@@ -8,7 +8,7 @@ En este README aprenderás a instalar un proyecto de Django en Windows utilizand
 4. [📝 Creación del proyecto de Django (miprimerproyecto)](https://github.com/zubus/TD-Django-0027#4--creación-del-proyecto-de-django-miprimerproyecto)
 5. [📂 Archivos y directorios más importantes en un proyecto Django recién creado](https://github.com/zubus/TD-Django-0027#5--archivos-y-directorios-más-importantes-en-un-proyecto-django-recién-creado)
 6. [🔧Comandos básicos de Django en la terminal](https://github.com/zubus/TD-Django-0027#6--Comandos-básicos-de-Django-en-la-terminal)
-7. [📘Explicación del archivo settings.py de Django](https://github.com/zubus/TD-Django-0027#7--Explicación-del-archivo-settings.py-de-Django)
+7. [📘Explicación del archivo settings.py de Django](https://github.com/zubus/TD-Django-0027#7--explicaci%C3%B3n-del-archivo-settingspy-de-django)
 
 ## 1. 🐍 Instalación de Python y Pip
 
