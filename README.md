@@ -74,7 +74,25 @@ django-admin --version
 
 ## 4. 📝 Creación del proyecto de Django (`miprimerproyecto`)
 
-Ahora que tienes Django instalado, es hora de crear tu primer proyecto. Ejecuta el siguiente comando para crear un proyecto llamado `miprimerproyecto` en la carpeta actual:
+Antes de crear el proyecto de Django, es necesario activar el entorno virtual llamado "mientornovirtual" para aislar las dependencias del proyecto. La activación del entorno virtual varía según el terminal que estés utilizando:
+
+1. **Windows Terminal**: Ejecuta el siguiente comando para activar el entorno virtual:
+
+```
+.\mientornovirtual\Scripts\Activate
+```
+
+2. **Git Bash**: Si estás utilizando Git Bash, ejecuta el siguiente comando para activar el entorno virtual:
+
+```
+source ./mientornovirtual/Scripts/activate
+```
+
+3. **Visual Studio Code**: Si estás utilizando Visual Studio Code, presiona `Ctrl + Shift + P` para abrir la paleta de comandos y escribe "Select Interpreter". Selecciona `Python: Select Interpreter` y elige el entorno virtual que acabas de crear (`mientornovirtual`).
+
+La activación del entorno virtual es importante porque permite aislar las dependencias de tu proyecto de otras aplicaciones y facilita la gestión de las dependencias.
+
+Ahora que tienes Django instalado y el entorno virtual "mientornovirtual" activado, es hora de crear tu primer proyecto. Ejecuta el siguiente comando para crear un proyecto llamado `miprimerproyecto` en la carpeta actual:
 
 ```
 django-admin startproject miprimerproyecto
