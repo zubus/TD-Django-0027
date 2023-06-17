@@ -2,12 +2,12 @@
 
 En este README aprenderás a instalar un proyecto de Django en Windows utilizando tanto la consola de comandos (terminal) de Windows como Git Bash. Seguiremos los siguientes pasos:
 
-1. [🐍 Instalación de Python y Pip](#1-instalación-de-python-y-pip)
-2. [🌐 Creación del entorno virtual (mientornovirtual)](#2-creación-del-entorno-virtual-mientornovirtual)
-3. [🎆 Instalación de Django](#3-instalación-de-django)
-4. [📝 Creación del proyecto de Django (miprimerproyecto)](#4-creación-del-proyecto-de-django-miprimerproyecto)
-5. [📂 Archivos y directorios más importantes en un proyecto Django recién creado](#5-archivos-y-directorios-más-importantes-en-un-proyecto-django-recién-creado)
-6. [🔧 Comandos básicos de Django en la terminal](#6-comandos-básicos-de-django-en-la-terminal)
+1. [🐍 Instalación de Python y Pip](https://github.com/zubus/TD-Django-0027#1--instalación-de-python-y-pip)
+2. [🌐 Creación del entorno virtual (mientornovirtual)](https://github.com/zubus/TD-Django-0027#2--creación-del-entorno-virtual-mientornovirtual)
+3. [🎆 Instalación de Django](https://github.com/zubus/TD-Django-0027#3--instalación-de-django)
+4. [📝 Creación del proyecto de Django (miprimerproyecto)](https://github.com/zubus/TD-Django-0027#4--creación-del-proyecto-de-django-miprimerproyecto)
+5. [📂 Archivos y directorios más importantes en un proyecto Django recién creado](https://github.com/zubus/TD-Django-0027#5--archivos-y-directorios-más-importantes-en-un-proyecto-django-recién-creado)
+6. [🔧Comandos básicos de Django en la terminal](https://github.com/zubus/TD-Django-0027#--Comandos-básicos-de-Django-en-la-terminal)
 
 ## 1. 🐍 Instalación de Python y Pip
 
