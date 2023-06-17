@@ -184,7 +184,7 @@ MIDDLEWARE = [
     # ...
 ]
 
-ROOT_URLCONF = "proyecto1.urls"
+ROOT_URLCONF = "miprimerproyecto.urls"
 ```
 
 * `INSTALLED_APPS`: Es una lista de las aplicaciones que forman parte del proyecto. Por defecto, incluye aplicaciones de Django como el administrador y la autenticación de usuarios, pero puedes agregar tus propias aplicaciones a la lista para incluirlas en tu proyecto.
