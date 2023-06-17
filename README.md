@@ -98,6 +98,7 @@ Abre tu navegador y visita [http://127.0.0.1:8000/](http://127.0.0.1:8000/). Ver
 ## 5. 📂 Archivos y directorios más importantes en un proyecto Django recién creado
 
 ```
+mientornovirtual/
 miprimerproyecto/
 ├─ miprimerproyecto/
 │   ├── __init__.py
@@ -107,6 +108,8 @@ miprimerproyecto/
 │   └── wsgi.py
 └─ manage.py
 ```
+
+0. **mientornovirtual (entorno virtual)**: El entorno virtual no es parte del proyecto Django, pero es recomendable tenerlo en cuenta debido a su importancia en el desarrollo con Django. Puedes mover el entorno virtual a otra carpeta de tu equipo si así lo deseas, pero recuerda siempre activarlo antes de trabajar con tu proyecto Django. Contiene las bibliotecas y dependencias específicas de tu proyecto para aislarlas de las dependencias globales del sistema.
 
 1. **miprimerproyecto (carpeta raíz)**: Contiene todo el proyecto y sus aplicaciones. Todos los archivos y directorios relacionados con el proyecto se ubicarán dentro de esta carpeta.
 
