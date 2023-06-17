@@ -92,3 +92,32 @@ python manage.py runserver
 Abre tu navegador y visita [http://127.0.0.1:8000/](http://127.0.0.1:8000/). Verás la página de bienvenida de Django, lo que significa que has instalado y configurado correctamente tu proyecto de Django en Windows.
 
 🥳 ¡Listo! Recuerda siempre revisar la [documentación oficial de Django](https://docs.djangoproject.com/en/stable/intro/tutorial01/).
+
+**Archivos y directorios más importantes en un proyecto Django recién creado.**
+
+```
+miprimerproyecto/
+├─ miprimerproyecto/
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└─ manage.py
+```
+
+1. **miprimerproyecto (carpeta raíz)**: Contiene todo el proyecto y sus aplicaciones. Todos los archivos y directorios relacionados con el proyecto se ubicarán dentro de esta carpeta.
+
+2. **miprimerproyecto (subcarpeta)**: Esta carpeta contiene la configuración principal del proyecto.
+
+    - **__init__.py**: Este archivo vacío indica que el directorio que lo contiene es un paquete Python. Esto permite importar módulos desde esta carpeta.
+
+    - **asgi.py**: Este archivo define la configuración de ASGI (Asynchronous Server Gateway Interface) para el proyecto. ASGI es una especificación más moderna que permite a tu aplicación Django funcionar en servidores asíncronos, como Daphne o Hypercorn.
+
+    - **settings.py**: Aquí puedes configurar todo tipo de ajustes para tu proyecto, como la base de datos, el middleware, las aplicaciones instaladas, la configuración de correo electrónico, etc. Es uno de los archivos más importantes a personalizar al desarrollar un proyecto de Django.
+
+    - **urls.py**: Este archivo contiene las definiciones de las URL para el proyecto. Aquí es donde se asignan las rutas URL a las vistas de tus aplicaciones Django.
+
+    - **wsgi.py**: Este archivo define la configuración de WSGI (Web Server Gateway Interface) para el proyecto. WSGI es una especificación que permite a tu aplicación Django funcionar en servidores sincrónicos, como Gunicorn o uWSGI.
+
+3. **manage.py**: Este archivo es un archivo ejecutable de línea de comandos. Actúa como interfaz entre el desarrollador y el proyecto, permitiendo ejecutar comandos útiles como `runserver`, `makemigrations` o `migrate`, entre otros.
