@@ -2,10 +2,12 @@
 
 En este README aprenderás a instalar un proyecto de Django en Windows utilizando tanto la consola de comandos (terminal) de Windows como Git Bash. Seguiremos los siguientes pasos:
 
-1. 🐍 Instalación de Python y Pip.
-2. 🌐 Creación del entorno virtual (`mientornovirtual`).
-3. 🎆 Instalación de Django.
-4. 📝 Creación del proyecto de Django (`miprimerproyecto`).
+1. [🐍 Instalación de Python y Pip](#1-instalación-de-python-y-pip)
+2. [🌐 Creación del entorno virtual (mientornovirtual)](#2-creación-del-entorno-virtual-mientornovirtual)
+3. [🎆 Instalación de Django](#3-instalación-de-django)
+4. [📝 Creación del proyecto de Django (miprimerproyecto)](#4-creación-del-proyecto-de-django-miprimerproyecto)
+5. [📂 Archivos y directorios más importantes en un proyecto Django recién creado](#5-archivos-y-directorios-más-importantes-en-un-proyecto-django-recién-creado)
+6. [🔧 Comandos básicos de Django en la terminal](#6-comandos-básicos-de-django-en-la-terminal)
 
 ## 1. 🐍 Instalación de Python y Pip
 
@@ -93,7 +95,7 @@ Abre tu navegador y visita [http://127.0.0.1:8000/](http://127.0.0.1:8000/). Ver
 
 🥳 ¡Listo! Recuerda siempre revisar la [documentación oficial de Django](https://docs.djangoproject.com/en/stable/intro/tutorial01/).
 
-**Archivos y directorios más importantes en un proyecto Django recién creado.**
+## 5. 📂 Archivos y directorios más importantes en un proyecto Django recién creado
 
 ```
 miprimerproyecto/
@@ -121,3 +123,15 @@ miprimerproyecto/
     - **wsgi.py**: Este archivo define la configuración de WSGI (Web Server Gateway Interface) para el proyecto. WSGI es una especificación que permite a tu aplicación Django funcionar en servidores sincrónicos, como Gunicorn o uWSGI.
 
 3. **manage.py**: Este archivo es un archivo ejecutable de línea de comandos. Actúa como interfaz entre el desarrollador y el proyecto, permitiendo ejecutar comandos útiles como `runserver`, `makemigrations` o `migrate`, entre otros.
+
+## 6. 🔧 Comandos básicos de Django en la terminal
+
+- `django-admin startproject miproyecto`: Crea un nuevo proyecto Django llamado `miproyecto`.
+- `python manage.py startapp miapp`: Crea una nueva aplicación Django llamada `miapp` dentro del proyecto en el que te encuentras.
+- `python manage.py runserver`: Inicia el servidor de desarrollo de Django en el puerto 8000.
+- `python manage.py makemigrations`: Genera migraciones basadas en los cambios realizados en los modelos de las aplicaciones.
+- `python manage.py migrate`: Aplica las migraciones pendientes a la base de datos.
+- `python manage.py createsuperuser`: Crea un nuevo superusuario con acceso al panel de administración de Django.
+- `python manage.py shell`: Abre una shell de Python con el entorno de tu proyecto cargado, lo que te permite interactuar con tus modelos y otras partes de Django.
+- `python manage.py collectstatic`: Recopila todos los archivos estáticos de tus aplicaciones en el directorio `STATIC_ROOT`.
+- `python manage.py test`: Ejecuta las pruebas del proyecto.
