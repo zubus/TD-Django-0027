@@ -1,3 +1,9 @@
+**Índice de archivos**
+|1:|Instalación de Django (este documento)|
+|--|--|
+|2: |[Creación de la primera aplicación en Django (`boards`)](https://github.com/zubus/TD-Django-0027/blob/main/1-Primera-Aplicaci%C3%B3n.md)|
+#
+
 # 🎉 Instalación de Django en Windows: Paso a paso 🚀
 
 En este README aprenderás a instalar un proyecto de Django en Windows utilizando tanto la consola de comandos (terminal) de Windows como Git Bash. Seguiremos los siguientes pasos:
