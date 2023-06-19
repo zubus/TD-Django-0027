@@ -4,5 +4,7 @@ from .views import index_view, IndexView
 
 urlpatterns = [
     path("", index_view, name="index"),
-    path("template/", IndexView.as_view(), name="index"),
+    path("template/", IndexView.as_view(), name="index_class"),
 ]
+
+#tag permiten realizar funciones de Django  {url ->name}
