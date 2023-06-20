@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     #aplicaciones propias
     "boards",
     #aplicaciones de terceros
+    "bootstrap5",
 ]
 
 MIDDLEWARE = [
