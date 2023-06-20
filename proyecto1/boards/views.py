@@ -14,8 +14,11 @@ class IndexView(TemplateView):
     template_name = "boards/index.html"  #buscamos dentro de la carpeta templates(de boards),
     # la carpeta boards y dentro un archivo llamado index.html
 
-def get_date_view(request):
+def get_date_view(request, name):
     fecha_actual = datetime.datetime.now()
-    context = {'fecha': fecha_actual}
+    context = {
+        'fecha': fecha_actual,
+        'nombre':name
+        }
     return render(request,'boards/fecha.html', context)
         #  render(request, template, datos(context[diccionario]))
