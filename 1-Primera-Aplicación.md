@@ -9,7 +9,7 @@ Este tutorial te guiará en la creación de la primera aplicación dentro de tu 
 3. [Registro de la aplicación en Django](https://github.com/zubus/TD-Django-0027/blob/main/1-Primera-Aplicaci%C3%B3n.md#3--registro-de-la-aplicación-en-django)
 4. [Estructura de directorios `static` en `boards`](https://github.com/zubus/TD-Django-0027/blob/main/1-Primera-Aplicaci%C3%B3n.md#4--estructura-de-directorios-static-en-boards)
 5. [Uso del sistema `static` de Django y configuración en `settings.py`](https://github.com/zubus/TD-Django-0027/blob/main/1-Primera-Aplicaci%C3%B3n.md#5--uso-del-sistema-static-de-django-y-configuración-en-settingspy)
-6. [¡Listo!](https://github.com/zubus/TD-Django-0027/blob/main/1-Primera-Aplicaci%C3%B3n.md#6--¡listo)
+
 
 ## 1. 🟢 Activación del entorno virtual (`mientornovirtual`)
 
@@ -114,6 +114,3 @@ STATIC_URL = '/static/'
 ```
 
 Esto indica que Django busca y sirve los archivos estáticos desde la ruta `/static/` en cada aplicación.
-
-## 6. 🚀 ¡Listo!
-Recuerda siempre activar el entorno virtual antes de trabajar en tu proyecto para mantener las dependencias aisladas.
