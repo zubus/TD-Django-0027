@@ -2,6 +2,7 @@
 |0:|Instalación de Django (este documento)|
 |--|--|
 |1: |[Creación de la primera aplicación en Django (`boards`)](https://github.com/zubus/TD-Django-0027/blob/main/1-Primera-Aplicaci%C3%B3n.md)|
+|2: |[Templates](https://github.com/zubus/TD-Django-0027/blob/main/2-Templates.md)
 #
 
 # 🎉 Instalación de Django en Windows: Paso a paso 🚀
