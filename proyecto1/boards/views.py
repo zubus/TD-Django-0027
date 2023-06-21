@@ -22,3 +22,6 @@ def get_date_view(request, name):
         }
     return render(request,'boards/fecha.html', context)
         #  render(request, template, datos(context[diccionario]))
+
+def name_view(request):
+    return render(request, 'boards/nombre.html')

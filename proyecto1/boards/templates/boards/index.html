@@ -1,3 +1,8 @@
-{% comment %} hola mundo desde el template {% endcomment %}
+{% extends 'boards/base.html' %}
 
+
+{% comment %} hola mundo desde el template, se hereda del base.html
+{% endcomment %}
+{% block contenido %}
 <h1>Hola Mundo desde un template</h1>
+{% endblock contenido %}
