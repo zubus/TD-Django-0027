@@ -1,14 +1,28 @@
 {% extends 'boards/base.html' %}
-
+{% load static %}
+{% load bootstrap5 %}
 {% comment %} {% block navbar %}{% endblock navbar %} {% endcomment %}
 {% block titulo %} Fecha {{nombre}} {% endblock titulo %}
 {% block contenido %}
 {% comment %} <h1>Bienvenido {{nombre|first|lower}}</h1> {% endcomment %}
-
 {% filter upper %}
     <h1>Bienvenido {{nombre}}</h1>
 {% endfilter %}
 <h1>La fecha actual es: {{fecha}} </h1>
+<div class="row">
+    <div class="card" style="width: 18rem;">
+        {% if aleatorio|divisibleby:2 %}
+        <img src="{% static 'boards/img/gatito.png' %}" class="card-img-top" alt="...">
+        {% else %}
+        <img src="{% static 'boards/img/perrito.png' %}" class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="{% url 'name' %}" class="btn btn-primary">Ir a name</a>
+        </div>
+      </div>
+</div>
 {% endblock contenido %}
 {% block prueba %}
 <div class="row">

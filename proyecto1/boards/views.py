@@ -8,6 +8,14 @@ from random import randint
 import datetime
 
 
+
+
+# Clase Para ejemplificar
+class Persona:
+    def __init__(self, nombre, apellido):
+        self.nombre = nombre
+        self.apellido = apellido
+
 # Create your views here.
 def index_view(request):
     return HttpResponse("<h1>Hola Mundo, desde la app boards</h1>")
@@ -29,3 +37,8 @@ def get_date_view(request, name):
 
 def name_view(request):
     return render(request, 'boards/nombre.html')
+
+def mostrar(request):
+    persona = Persona("Juan", "Perez")
+    context = {"persona": persona}
+    return render(request, "boards/example.html",context)
