@@ -4,9 +4,15 @@
 ```
 proyecto1/
     boards/
+        static/
+            boards/
+                img/
+                    gatito.png
+                    perrito.png
         templates/
             boards/
                 base.html
+                example.html
                 fecha.html
         urls.py
         views.py
@@ -66,6 +72,25 @@ En este commit, se agregan ejemplos de filtros y tags en `fecha.html` y `base.ht
 4. En `views.py`, se importa la función `randint` para obtener números enteros aleatorios y se añaden más variables al contexto para incluir frutas y un número aleatorio.
 
 Con estos cambios, hemos demostrado el uso de filtros y tags en Django Template Language, que permite mayor control sobre la presentación y manipulación de datos en los templates del proyecto.
+Puedes encontrar la información sobre filtros y tags en la [Documentación de Django](https://docs.djangoproject.com/en/4.2/ref/templates/builtins/) y en [w3schools](https://www.w3schools.com/django/ref_tags_filter.php).
+
+### 📝 [Commit 6: Agregar archivos estáticos y tag "url" en Django Templates](https://github.com/zubus/TD-Django-0027/commit/e6e200191501691d1b4bbaa2c81493289f44b8c7)
+
+En este commit, se explica cómo agregar archivos estáticos en el Django Template, así como el uso del tag "url". Los cambios realizados incluyen:
+
+1. Se añadieron imágenes de gatito y perrito en la carpeta `proyecto1/boards/static/boards/img/` .
+
+2. Se modificó el archivo `proyecto1/boards/templates/boards/fecha.html` para incluir el uso de imágenes estáticas con la etiqueta `{% static %}`.
+
+3. Se creó un archivo de ejemplo `proyecto1/boards/templates/boards/example.html`. Este archivo muestra cómo utilizar el objeto `persona` para presentar el nombre y apellido en un template.
+
+4. Se actualizó el archivo `proyecto1/boards/views.py` para crear una función de vista para el archivo `example.html`, que utiliza la clase `Persona` para crear un objeto `persona` con el nombre y apellido, y lo envía como parte del contexto.
+
+5. Se modificó el archivo `proyecto1/boards/urls.py` para agregar una nueva ruta que enlaza a la función de vista creada en el paso 4: `example/`, con el nombre `"example"`.
+
+6. Se añadió el tag `{% url %}` en el archivo `proyecto1/boards/templates/boards/fecha.html`, que genera la URL para la vista a la que se dirige el botón en la tarjeta.
+
+Con estos cambios, ahora se pueden mostrar imágenes estáticas en el template y utilizar el tag "url" para enlazar a otras vistas en el proyecto.
 
 ### 📚 Conceptos clave
 
@@ -139,6 +164,29 @@ Los tags en Django son pequeñas piezas de código que agregan lógica adicional
 2. Envía las variables requeridas desde la vista como parte del contexto.
 
 3. No olvides proporcionar los datos de prueba en tu vista para poder probar las funcionalidades de los filtros, condicionales y bucles en tus templates.
+
+### 🛠️ Cómo agregar archivos estáticos y el tag "url" en tus templates
+
+#### 1. Agregar archivos estáticos
+
+Coloca tus archivos estáticos (imágenes, CSS, JavaScript) en una carpeta denominada `static` dentro de la aplicación en la que se utilizarán. En este ejemplo, se colocaron las imágenes `gatito.png` y `perrito.png` en la carpeta `proyecto1/boards/static/boards/img/`.
+
+Carga el archivo estático en tu template utilizando `{% load static %}`. Luego, utiliza la etiqueta `{% static 'ruta/al/archivo' %}` para agregar el archivo estático en tu HTML. Por ejemplo:
+
+```html
+{% load static %}
+<img src="{% static 'boards/img/gatito.png' %}" class="card-img-top" alt="...">
+```
+
+#### 2. Añadir el tag "url" en tu template
+
+Utiliza el tag `{% url 'nombre_de_la_vista' %}` para generar la URL de una vista en tu template. Por ejemplo:
+
+```html
+<a href="{% url 'name' %}" class="btn btn-primary">Ir a name</a>
+```
+
+Esto generará la URL para la vista llamada `name` y creará un enlace a la página correspondiente.
 
 ### 🔄 Reutilización y mantenimiento del código: Herencia de templates
 
