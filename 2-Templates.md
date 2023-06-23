@@ -1,4 +1,4 @@
-## Módulo 6 - Sesión 5
+## Módulo 6 - Sesión 5 y 6
 
 ### 🗂️ Estructura del proyecto
 ```
