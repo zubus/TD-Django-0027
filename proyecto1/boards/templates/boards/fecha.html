@@ -1,13 +1,43 @@
 {% extends 'boards/base.html' %}
 
 {% comment %} {% block navbar %}{% endblock navbar %} {% endcomment %}
+{% block titulo %} Fecha {{nombre}} {% endblock titulo %}
 {% block contenido %}
-<h1>Bienvenido {{nombre}}</h1>
+{% comment %} <h1>Bienvenido {{nombre|first|lower}}</h1> {% endcomment %}
+
+{% filter upper %}
+    <h1>Bienvenido {{nombre}}</h1>
+{% endfilter %}
 <h1>La fecha actual es: {{fecha}} </h1>
 {% endblock contenido %}
 {% block prueba %}
-<h1 class="text-success">
-    se anula el bloque prueba de base.html en fecha.html
-</h1>
+<div class="row">
+    <h1 class="text-primary"> El numero aleatorio es: {{aleatorio}}</h1>
+    {% if aleatorio == 0 %}
+        <h1 class="text-success">No hay nada</h1>
+    {% elif aleatorio|divisibleby:2 %}
+        <h2 class="text-warning">
+            sobrescribimos prueba
+        </h2>
+        <h2>Mis Frutas</h2>
+        <ol>
+            {% for fruta in frutas  %}
+            <li>{{fruta}}</li>
+            {% endfor %}
+        </ol>
+    {% else %}
+        <h2 class="text-danger">
+            sobrescribimos prueba
+        </h2>
+        <h2>Mis Frutas</h2>
+        <ol>
+            {% for fruta in frutas  %}
+            <li>{{fruta}}</li>
+            {% endfor %}
+        </ol>
+    {% endif %}
+    
+    
+</div>
 {% endblock prueba %}
     

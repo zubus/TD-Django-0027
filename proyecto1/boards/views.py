@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 #importar vista basada en clase
 from django.views.generic import TemplateView
+#numero entero aleatorio
+from random import randint
 #libreria para el manejo de las fechas
 import datetime
 
@@ -18,7 +20,9 @@ def get_date_view(request, name):
     fecha_actual = datetime.datetime.now()
     context = {
         'fecha': fecha_actual,
-        'nombre':name
+        'nombre':name,
+        'frutas': ["Platano", "Durazno", "Manzana", "Naranja"],
+        'aleatorio':randint(0,9),
         }
     return render(request,'boards/fecha.html', context)
         #  render(request, template, datos(context[diccionario]))
