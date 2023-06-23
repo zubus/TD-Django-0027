@@ -53,6 +53,20 @@ En este commit, se introdujo la herencia de templates de Django añadiendo un ar
 
 Con estos cambios, hemos implementado el sistema de herencia de templates de Django que permite reutilizar código HTML base en diferentes páginas del proyecto, facilitando el mantenimiento y la coherencia visual del sitio web.
 
+### 📝 [Commit 5: Agregar ejemplos de filtros y tags](https://github.com/zubus/TD-Django-0027/commit/ee78ebe49b6b4fac504387a93e0267a24c0d0c8f)
+
+En este commit, se agregan ejemplos de filtros y tags en `fecha.html` y `base.html`. Los cambios incluyen:
+
+1. En `base.html`, se añade un bloque de título `{% block titulo %}{% endblock titulo %}` que permite a los templates que heredan de `base.html` personalizar el título de la página.
+   
+2. Modificación de `fecha.html` para incluir un ejemplo de filtro que convierte el mensaje de bienvenida a mayúsculas usando `{% filter upper %}` y `{% endfilter %}`.
+
+3. En `fecha.html`, se añade el bloque de prueba `{% block prueba %}` en el que se muestran algunas acciones condicionales como `{% if ... %}`, `{% elif ... %}` y `{% else %}` junto con un ejemplo de bucle `{% for ... %}`.
+
+4. En `views.py`, se importa la función `randint` para obtener números enteros aleatorios y se añaden más variables al contexto para incluir frutas y un número aleatorio.
+
+Con estos cambios, hemos demostrado el uso de filtros y tags en Django Template Language, que permite mayor control sobre la presentación y manipulación de datos en los templates del proyecto.
+
 ### 📚 Conceptos clave
 
 #### 1. Templates
@@ -97,6 +111,34 @@ urlpatterns = [
 ```
 
 De esta manera, al acceder a la URL `date/Nombre`, se renderizará `fecha.html` con los datos proporcionados en el contexto.
+
+#### 3. Filtros
+
+Los filtros en Django permiten aplicar transformaciones a las variables dentro de los templates. Por ejemplo, el filtro `upper` transforma una cadena de texto en mayúsculas y se puede usar de la siguiente manera en un template:
+
+```html
+{% filter upper %}
+    <h1>Bienvenido {{nombre}}</h1>
+{% endfilter %}
+```
+
+#### 4. Tags
+
+Los tags en Django son pequeñas piezas de código que agregan lógica adicional a los templates sin necesidad de modificar el archivo `views.py`. Ejemplos de tags incluyen `{% if %}`, `{% for %}`, `{% block %}`, entre otros. Estos tags añaden estructuras condicionales, bucles y bloques personalizables en los templates.
+
+```html
+{% for fruta in frutas %}
+    <li>{{fruta}}</li>
+{% endfor %}
+```
+
+### 🛠️ Cómo agregar filtros, condicionales y bucles a tus templates
+
+1. En tu archivo HTML, coloca el filtro, tag o bucle dentro de las etiquetas del bloque de contenido.
+
+2. Envía las variables requeridas desde la vista como parte del contexto.
+
+3. No olvides proporcionar los datos de prueba en tu vista para poder probar las funcionalidades de los filtros, condicionales y bucles en tus templates.
 
 ### 🔄 Reutilización y mantenimiento del código: Herencia de templates
 
