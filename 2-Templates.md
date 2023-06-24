@@ -14,6 +14,10 @@ proyecto1/
                 base.html
                 example.html
                 fecha.html
+                formulario1.html
+                gracias.html
+                name.html
+        forms.py
         urls.py
         views.py
     proyecto1/
@@ -91,6 +95,123 @@ En este commit, se explica cómo agregar archivos estáticos en el Django Templa
 6. Se añadió el tag `{% url %}` en el archivo `proyecto1/boards/templates/boards/fecha.html`, que genera la URL para la vista a la que se dirige el botón en la tarjeta.
 
 Con estos cambios, ahora se pueden mostrar imágenes estáticas en el template y utilizar el tag "url" para enlazar a otras vistas en el proyecto.
+
+### 📝 [Commit 7: Añadir formularios tanto de manera manual como con `forms.Form`](https://github.com/zubus/TD-Django-0027/commit/6123c1ac9093c691c4a046c7a80017b65dad79f3)
+
+En este commit, se agregan formularios de dos maneras diferentes: manualmente y utilizando la clase `forms.Form` de Django. Los cambios incluyen:
+
+1. Creación del archivo `proyecto1/boards/forms.py`:
+
+```python
+from django import forms
+
+class NameForm(forms.Form):
+    your_name = forms.CharField(label='enter your name:', max_length=100)
+    pet = forms.CharField(label='enter pet name:', max_length=100)
+    country = forms.CharField(label='enter your country:', max_length=100)
+```
+
+En este archivo, se crea una nueva clase `NameForm` que hereda de `forms.Form`. Se definen tres campos de tipo `CharField` con etiquetas y longitudes máximas específicas.
+
+2. Creación del archivo `proyecto1/boards/templates/boards/formulario1.html`:
+
+```html
+{% extends 'boards/base.html' %}
+
+{% block contenido %}
+<div class="row">
+    <form action="/getname/" method="post">
+        {% csrf_token %}
+        <label for="your_name">tu nombre: </label>
+        <input id="your_name" type="text" name="your_name" value="">
+        <input type="submit" value="OK">
+    </form>
+</div>
+{% endblock contenido %}
+{% block prueba %}{% endblock prueba %}
+```
+
+En este template, se crea un formulario simple de manera manual incluyendo el campo `your_name` y el botón de envío.
+
+Respecto a `{% csrf_token %}` en el template `formulario1.html`, eso es una etiqueta especial que se utiliza para agregar un token de seguridad CSRF (Cross-Site Request Forgery) al formulario. 
+
+CSRF es una vulnerabilidad que puede permitir a un atacante falsificar una solicitud a un sitio web y realizar acciones no deseadas en nombre del usuario. Django incluye medidas de seguridad para proteger contra esto, y una de ellas es el uso del token CSRF.
+
+Al incluir la etiqueta `{% csrf_token %}` dentro del formulario, se agrega automáticamente un campo oculto con el token CSRF. Esto es necesario para que Django pueda verificar que los formularios enviados provienen de la página actual y no de un ataque CSRF.
+
+3. Creación del archivo `proyecto1/boards/templates/boards/name.html`:
+
+```html
+{% extends 'boards/base.html' %}
+
+{% block contenido %}
+<form action="/getname/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock contenido %}
+{% block prueba %}{% endblock prueba %}
+```
+
+En este template, se crea un formulario que utiliza `NameForm` para definir y renderizar sus campos automáticamente.
+
+4. Creación del archivo `proyecto1/boards/templates/boards/gracias.html`:
+
+```html
+{% extends 'boards/base.html' %}
+{% block contenido %}
+<h1 class="text-success"> Los datos han sido enviados correctamente</h1>
+{% endblock contenido %}
+{% block prueba %}{% endblock prueba %}
+```
+Aquí se muestra un mensaje cuando el formulario ha sido enviado correctamente.
+
+5. Actualización del archivo `proyecto1/boards/urls.py` para agregar rutas necesarias:
+
+```python
+from .views import (get_date_view, name_view, mostrar, formulario_nombre,
+                    get_name, thanks)
+
+urlpatterns = [
+    # ... otras rutas ...
+    path("formulario/", formulario_nombre, name="formulario"),
+    path("getname/", get_name, name="get_name"),
+    path("thanks/", thanks, name="thanks"),
+]
+```
+
+6. Actualización del archivo `proyecto1/boards/views.py` para agregar las funciones de vistas correspondientes a los nuevos formularios y plantillas:
+
+```python
+from .forms import NameForm
+
+# ... otras funciones de vista ...
+
+def formulario_nombre(request):
+    return render(request, 'boards/formulario1.html')
+
+def get_name(request):
+    if request.method == 'POST':
+        form = NameForm(request.POST)
+        if form.is_valid():
+            return HttpResponseRedirect('/thanks/')
+    else:
+        form = NameForm()
+        context= {'form':form}
+        return render(request, 'boards/name.html',context)
+
+def thanks(request):
+    return render(request, "boards/gracias.html")
+```
+
+Esta función de vista maneja las solicitudes (`request`) enviadas al formulario. A través del método `POST`, se verifica si el formulario ha sido enviado. 
+
+- Si es una solicitud `POST`, el formulario `NameForm` se crea utilizando los datos enviados (`request.POST`). Luego, se verifica si el formulario es válido mediante el método `is_valid()`. Si lo es, se redirige al usuario a la página de agradecimiento (`/thanks/`) utilizando `HttpResponseRedirect`.
+
+- Si es una solicitud `GET` o cualquier otro método de solicitud, se crea una instancia vacía del formulario `NameForm` y se renderiza el template `'boards/name.html'` junto con el contexto que contiene el formulario.
+
+Con estos cambios, se han implementado dos métodos diferentes para crear formularios en Django.
 
 ### 📚 Conceptos clave
 
