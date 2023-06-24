@@ -287,3 +287,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 * `DEFAULT_AUTO_FIELD`: Es el tipo de campo primario utilizado por defecto en los modelos de Django. 
 
 Recuerda siempre revisar la [documentación oficial de Django]([https://docs.djangoproject.com/en/4.2/topics/settings/](https://docs.djangoproject.com/en/4.2/)) y la [referencia completa de configuración](https://docs.djangoproject.com/en/4.2/ref/settings/).
+
+
+---
+**Nota importante**: Este repositorio se enfoca en ser una guía de aprendizaje y no debe ser considerado como un proyecto listo para producción. Por esta razón, se trabaja exclusivamente en la rama principal `main`. Es importante tener en cuenta que ciertos aspectos de seguridad, como la clave secreta de Django o cualquier otra información sensible, no se ocultan. Cuando desarrolles un proyecto para producción, te recomendamos seguir las [prácticas de seguridad de Django](https://docs.djangoproject.com/en/4.2/topics/security/).
