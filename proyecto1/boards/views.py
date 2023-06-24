@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 #numero entero aleatorio
 from random import randint
 #Formulario
-from .forms import NameForm
+from .forms import NameForm,AuthorForm
 #libreria para el manejo de las fechas
 import datetime
 
@@ -69,3 +69,20 @@ def get_name(request):
 
 def thanks(request):
     return render(request, "boards/gracias.html")
+
+
+def create_author(request):
+    #logica de si se trata de una solicitud post
+    if request.method == 'POST':
+        #crear una instancia del formulario con los datos ingresados
+        form = AuthorForm(request.POST)
+        if form.is_valid():
+            #aqui se hace lo que queramos con los datos
+            #procesamos los datos
+            form.save() #guardando los datos ingresados en la bd
+            return HttpResponseRedirect('/thanks/')
+    else:
+        #si es un metodo get
+        form = AuthorForm()
+        context= {'form':form}
+        return render(request, 'boards/author.html',context)

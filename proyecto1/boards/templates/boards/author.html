@@ -1,0 +1,15 @@
+{% extends 'boards/base.html' %}
+
+
+{% block contenido %}
+<h1>Registro Autores</h1>
+<div class="row">
+    <form action="/createauthor/" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock contenido %}
+{% block prueba %}{% endblock prueba %}
