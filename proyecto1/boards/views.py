@@ -5,7 +5,7 @@ from django.views.generic import TemplateView
 #numero entero aleatorio
 from random import randint
 #Formulario
-from .forms import NameForm,AuthorForm
+from .forms import NameForm,AuthorForm, InputForm
 #libreria para el manejo de las fechas
 import datetime
 
@@ -86,3 +86,8 @@ def create_author(request):
         form = AuthorForm()
         context= {'form':form}
         return render(request, 'boards/author.html',context)
+
+def datosform_view(request):
+    form = InputForm()
+    context = {'form': form}
+    return render(request, 'boards/datosform.html', context)

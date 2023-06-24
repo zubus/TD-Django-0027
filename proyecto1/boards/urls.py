@@ -9,6 +9,7 @@ from .views import (
     get_name,
     thanks,
     create_author,
+    datosform_view,
     )
 # from . import views
 
@@ -22,6 +23,7 @@ urlpatterns = [
     path("getname/", get_name, name="get_name"),
     path("thanks/", thanks, name="thanks"),
     path("createauthor/", create_author, name="create_author"),
+    path("datosform/", datosform_view, name="datosform"),
 ]
 
 #tag permiten realizar funciones de Django  {url ->name}
