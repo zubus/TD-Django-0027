@@ -1,9 +1,11 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 #importar vista basada en clase
 from django.views.generic import TemplateView
 #numero entero aleatorio
 from random import randint
+#Formulario
+from .forms import NameForm
 #libreria para el manejo de las fechas
 import datetime
 
@@ -36,9 +38,34 @@ def get_date_view(request, name):
         #  render(request, template, datos(context[diccionario]))
 
 def name_view(request):
+    if request.method == 'POST':
+        context = {"nombre" :request.POST["your_name"]}
+        return render(request, 'boards/nombre.html', context)
     return render(request, 'boards/nombre.html')
 
 def mostrar(request):
     persona = Persona("Juan", "Perez")
     context = {"persona": persona}
     return render(request, "boards/example.html",context)
+
+def formulario_nombre(request):
+    return render(request, 'boards/formulario1.html')
+
+def get_name(request):
+    #logica de si se trata de una solicitud post
+    if request.method == 'POST':
+        #crear una instancia del formulario con los datos ingresados
+        form = NameForm(request.POST)
+        if form.is_valid():
+            #aqui se hace lo que queramos con los datos
+            #procesamos los datos
+            return HttpResponseRedirect('/thanks/')
+    else:
+        #si es un metodo get
+        form = NameForm()
+        context= {'form':form}
+        return render(request, 'boards/name.html',context)
+
+
+def thanks(request):
+    return render(request, "boards/gracias.html")

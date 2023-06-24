@@ -1,0 +1,11 @@
+{% extends 'boards/base.html' %}
+
+
+{% block contenido %}
+<form action="/getname/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock contenido %}
+{% block prueba %}{% endblock prueba %}

@@ -1,0 +1,13 @@
+{% extends 'boards/base.html' %}
+
+{% block contenido %}
+<div class="row">
+    <form action="/getname/" method="post">
+        {% csrf_token %}
+        <label for="your_name">tu nombre: </label>
+        <input id="your_name" type="text" name="your_name" value="">
+        <input type="submit" value="OK">
+    </form>
+</div>
+{% endblock contenido %}
+{% block prueba %}{% endblock prueba %}

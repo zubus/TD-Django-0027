@@ -5,6 +5,9 @@ from .views import (
     get_date_view, 
     name_view,
     mostrar,
+    formulario_nombre,
+    get_name,
+    thanks,
     )
 # from . import views
 
@@ -14,6 +17,9 @@ urlpatterns = [
     path("date/<str:name>/", get_date_view, name="get_date"),
     path("name/", name_view, name="name"),
     path("example/", mostrar, name="example"),
+    path("formulario/", formulario_nombre, name="formulario"),
+    path("getname/", get_name, name="get_name"),
+    path("thanks/", thanks, name="thanks"),
 
 ]
 
