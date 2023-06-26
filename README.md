@@ -3,6 +3,7 @@
 |--|--|
 |1: |[Creación de la primera aplicación en Django (`boards`)](https://github.com/zubus/TD-Django-0027/blob/main/1-Primera-Aplicaci%C3%B3n.md)|
 |2: |[Templates: Implementación de vistas, templates, herencia de templates, filtros y tags en DTL, manejo de archivos estáticos y formularios](https://github.com/zubus/TD-Django-0027/blob/main/2-Templates.md) |
+|3: |[Modelos](https://github.com/zubus/TD-Django-0027/blob/main/3-Modelos.md)|
 #
 
 # 🎉 Instalación de Django en Windows: Paso a paso 🚀
