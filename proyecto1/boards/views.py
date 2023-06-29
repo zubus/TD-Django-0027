@@ -8,7 +8,9 @@ from random import randint
 from .forms import NameForm,AuthorForm, InputForm, UserRegisterForm
 #importamos para la vista de registro de ususarios
 from django.contrib import messages
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate, logout
+#se agrega authenticate y el formulario para el login en nuestro sistema
+from django.contrib.auth.forms import AuthenticationForm
 #libreria para el manejo de las fechas
 import datetime
 
@@ -110,4 +112,31 @@ def register_view(request):
     context = {"register_form":form}
     return render(request, 'boards/register.html',context)
 
-    
+
+def login_view(request):
+    if request.method =="POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password) #si existe el usuario devuelve el objeto
+            #si no existe el usuario, o no autentifica devuelve None
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"iniciaste sesion como {username}.")
+                return HttpResponseRedirect("/thanks/")
+            else:
+                messages.error(request, "username o password incorrectos")
+                return HttpResponseRedirect("login/")
+        else:
+            messages.error(request, "username o password incorrectos")
+            return HttpResponseRedirect("login/")
+
+    form = AuthenticationForm()
+    context = {'login_form':form}
+    return render(request, 'boards/login.html', context)
+
+def logout_view(request):
+    logout(request)
+    messages.info(request, " se ha cerrado la sesion satisfactoriamente")
+    return HttpResponseRedirect('/login/')
