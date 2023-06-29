@@ -5,7 +5,10 @@ from django.views.generic import TemplateView
 #numero entero aleatorio
 from random import randint
 #Formulario
-from .forms import NameForm,AuthorForm, InputForm
+from .forms import NameForm,AuthorForm, InputForm, UserRegisterForm
+#importamos para la vista de registro de ususarios
+from django.contrib import messages
+from django.contrib.auth import login
 #libreria para el manejo de las fechas
 import datetime
 
@@ -91,3 +94,20 @@ def datosform_view(request):
     form = InputForm()
     context = {'form': form}
     return render(request, 'boards/datosform.html', context)
+
+def register_view(request):
+    if request.method == "POST":
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registrado Satisfactoriamente")
+        else:
+            messages.error(request, "Registro Invalido. Algunos datos ingresados no son correctos")
+        return HttpResponseRedirect('/thanks')
+
+    form = UserRegisterForm()
+    context = {"register_form":form}
+    return render(request, 'boards/register.html',context)
+
+    
