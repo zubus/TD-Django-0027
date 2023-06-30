@@ -11,6 +11,12 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 #se agrega authenticate y el formulario para el login en nuestro sistema
 from django.contrib.auth.forms import AuthenticationForm
+#para la gestion de permisos
+from .models import Boards
+from django.contrib.auth.models import Permission
+from django.contrib.contenttypes.models import ContentType
+#required mixins
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 #libreria para el manejo de las fechas
 import datetime
 
@@ -27,7 +33,9 @@ class Persona:
 def index_view(request):
     return HttpResponse("<h1>Hola Mundo, desde la app boards</h1>")
 
-class IndexView(TemplateView):
+class IndexView(LoginRequiredMixin,PermissionRequiredMixin,TemplateView):
+    login_url = '/login/'
+    permission_required = 'boards.es_miembro_1'
     template_name = "boards/index.html"  #buscamos dentro de la carpeta templates(de boards),
     # la carpeta boards y dentro un archivo llamado index.html
 
@@ -101,7 +109,16 @@ def register_view(request):
     if request.method == "POST":
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            user = form.save()
+            #obtenemos el contenttype del modelo
+            content_type = ContentType.objects.get_for_model(Boards)
+            #obtenemos el permiso a asignar
+            es_miembro_1 = Permission.objects.get(
+                codename='es_miembro_1',
+                content_type=content_type
+            )
+            user = form.save() #aqui ya tenemos el objeto User
+            user.user_permissions.add(es_miembro_1)
+
             login(request, user)
             messages.success(request, "Registrado Satisfactoriamente")
         else:
@@ -127,10 +144,10 @@ def login_view(request):
                 return HttpResponseRedirect("/thanks/")
             else:
                 messages.error(request, "username o password incorrectos")
-                return HttpResponseRedirect("login/")
+                return HttpResponseRedirect("/login/")
         else:
             messages.error(request, "username o password incorrectos")
-            return HttpResponseRedirect("login/")
+            return HttpResponseRedirect("/login/")
 
     form = AuthenticationForm()
     context = {'login_form':form}

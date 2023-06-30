@@ -3,6 +3,20 @@ from django.db import models  #nos da indicios de que estaremos trabajando con B
 
 # Create your models here.
 
+class Boards(models.Model):
+    id = models.AutoField(primary_key=True) #uuid vamos a generar un INT
+    titulo= models.CharField(max_length=200)
+    descripcion = models.TextField()
+    #buenapractica
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        permissions = (("es_miembro_1","Es miembro con prioridad 1"),)#por si queremos crear mas de un permiso
+
+    def __str__(self):
+        return self.titulo
+
 
 TITLE_CHOICES = [
     ('MR','Mr.'),
