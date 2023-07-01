@@ -17,6 +17,8 @@ from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 #required mixins
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+#para las vistas basadas en funciones podemos usar otras herramientas
+from django.contrib.auth.decorators import login_required, permission_required
 #libreria para el manejo de las fechas
 import datetime
 
@@ -30,6 +32,7 @@ class Persona:
         self.apellido = apellido
 
 # Create your views here.
+@login_required(login_url='/login/')
 def index_view(request):
     return HttpResponse("<h1>Hola Mundo, desde la app boards</h1>")
 
@@ -39,6 +42,7 @@ class IndexView(LoginRequiredMixin,PermissionRequiredMixin,TemplateView):
     template_name = "boards/index.html"  #buscamos dentro de la carpeta templates(de boards),
     # la carpeta boards y dentro un archivo llamado index.html
 
+@login_required(login_url='/login/')
 def get_date_view(request, name):
     fecha_actual = datetime.datetime.now()
     context = {
@@ -61,9 +65,11 @@ def mostrar(request):
     context = {"persona": persona}
     return render(request, "boards/example.html",context)
 
+@login_required(login_url='/login/')
 def formulario_nombre(request):
     return render(request, 'boards/formulario1.html')
 
+@login_required(login_url='/login/')
 def get_name(request):
     #logica de si se trata de una solicitud post
     if request.method == 'POST':
@@ -83,7 +89,8 @@ def get_name(request):
 def thanks(request):
     return render(request, "boards/gracias.html")
 
-
+@login_required(login_url='/login/')
+@permission_required(perm='boards.es_miembro_1', raise_exception=True)
 def create_author(request):
     #logica de si se trata de una solicitud post
     if request.method == 'POST':
