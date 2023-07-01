@@ -39,6 +39,9 @@ class Author(models.Model):
         verbose_name_plural = 'Autores'
         ordering = ['created']
 
+    def get_absolute_url(self):
+        return reverse("author_detail", kwargs={"pk": self.pk})
+    
     def __str__(self):
         return self.name
 
