@@ -39,12 +39,11 @@ class Author(models.Model):
         verbose_name_plural = 'Autores'
         ordering = ['created']
 
-    def get_absolute_url(self):
-        return reverse("author_detail", kwargs={"pk": self.pk})
-    
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse("author_detail", kwargs={"pk": self.pk})
 class Book(models.Model):
     id = models.AutoField(primary_key=True) #uuid vamos a generar un INT
     name = models.CharField(max_length=100, verbose_name='Nombre')
