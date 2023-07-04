@@ -1,28 +1,29 @@
-from django.shortcuts import render
-from django.http import HttpResponse,HttpResponseRedirect
-#importar vista basada en clase
-from django.views.generic import TemplateView
-#numero entero aleatorio
-from random import randint
-#Formulario
-from .forms import NameForm,AuthorForm, InputForm, UserRegisterForm
-#importamos para la vista de registro de ususarios
-from django.contrib import messages
-from django.contrib.auth import login, authenticate, logout
-#se agrega authenticate y el formulario para el login en nuestro sistema
-from django.contrib.auth.forms import AuthenticationForm
-#para la gestion de permisos
-from .models import Boards
-from django.contrib.auth.models import Permission
-from django.contrib.contenttypes.models import ContentType
-#required mixins
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-#para las vistas basadas en funciones podemos usar otras herramientas
-from django.contrib.auth.decorators import login_required, permission_required
 #libreria para el manejo de las fechas
 import datetime
+#numero entero aleatorio
+from random import randint
 
+#importamos para la vista de registro de ususarios
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+#para las vistas basadas en funciones podemos usar otras herramientas
+from django.contrib.auth.decorators import login_required, permission_required
+#se agrega authenticate y el formulario para el login en nuestro sistema
+from django.contrib.auth.forms import AuthenticationForm
+#required mixins
+from django.contrib.auth.mixins import (LoginRequiredMixin,
+                                        PermissionRequiredMixin)
+from django.contrib.auth.models import Permission
+from django.contrib.contenttypes.models import ContentType
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
+#importar vista basada en clase
+from django.views.generic import TemplateView
 
+#Formulario
+from .forms import AuthorForm, InputForm, NameForm, UserRegisterForm
+#para la gestion de permisos
+from .models import Boards
 
 
 # Clase Para ejemplificar

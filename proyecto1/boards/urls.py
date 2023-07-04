@@ -1,19 +1,10 @@
 from django.urls import path
-from .views import (
-    index_view,
-    IndexView, 
-    get_date_view, 
-    name_view,
-    mostrar,
-    formulario_nombre,
-    get_name,
-    thanks,
-    create_author,
-    datosform_view,
-    register_view,
-    login_view,
-    logout_view,
-    )
+
+from .views import (IndexView, create_author, datosform_view,
+                    formulario_nombre, get_date_view, get_name, index_view,
+                    login_view, logout_view, mostrar, name_view, register_view,
+                    thanks)
+
 # from . import views
 
 urlpatterns = [

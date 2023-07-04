@@ -1,5 +1,5 @@
-from django.db import models  #nos da indicios de que estaremos trabajando con BD
-
+from django.db import \
+    models  # nos da indicios de que estaremos trabajando con BD
 
 # Create your models here.
 
