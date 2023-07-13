@@ -1,4 +1,4 @@
-# [Grupo de Estudio](https://discord.gg/RJHQWttn) #
+# [Grupo de Estudio](https://discord.gg/Af9t6MWCjk) #
 
 **Índice de archivos**
 |0:|Instalación de Django (este documento)|
