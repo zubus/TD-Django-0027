@@ -1,4 +1,5 @@
 # [Grupo de Estudio](https://discord.gg/Af9t6MWCjk) #
+<a href="https://discord.gg/Af9t6MWCjk" rel="some text">![Discord Banner 2](https://discordapp.com/api/guilds/1121850350400442378/widget.png?style=banner2)</a>
 
 **Índice de archivos**
 |0:|Instalación de Django (este documento)|
